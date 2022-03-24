@@ -743,39 +743,24 @@
             aria-labelledby="offcanvasExampleLabel">
             <div class="offcanvas-header">
                 <h1 id="offcanvasExampleLabel"></h1>
-                <button class="btn-menu-close" data-bs-dismiss="offcanvas" aria-label="Close">menu <i
+                <button class="btn-menu-close" data-bs-dismiss="offcanvas" aria-label="Close">Мени <i
                         class="fa fa-chevron-left"></i></button>
             </div>
             <div class="offcanvas-body">
                 <div class="info-items">
                     <ul>
-                        <li class="number"><a href="tel://0123456789"><i class="fa fa-phone"></i>+00 123
-                                456 789</a></li>
-                        <li class="email"><a href="mailto://demo@example.com"><i
-                                    class="fa fa-envelope"></i>demo@example.com</a></li>
-                        <li class="account"><a href="account-login.html"><i
-                                    class="fa fa-user"></i>Account</a></li>
+                        <li class="number"><a href="tel:078209101"><i
+                                    class="fa fa-phone"></i>078/209-101</a></li>
+                        <li class="email"><a href="mailto:info@nnfashion.mk"><i
+                                    class="fa fa-envelope"></i>info@nnfashion.mk</a></li>
+                        <li class="account"><a href="/login"><i class="fa fa-user"></i>Account</a></li>
                     </ul>
                 </div>
                 <!-- Mobile Menu Start -->
                 <div class="mobile-menu-items">
                     <ul class="nav-menu">
-                        <li><a href="#">Home</a>
-                            <ul class="sub-menu">
-                                <li><a href="index.html">Home One</a></li>
-                                <li><a href="index-two.html">Home Two</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="about-us.html">About</a></li>
-                        <li><a href="#">Pages</a>
-                            <ul class="sub-menu">
-                                <li><a href="account.html">Account</a></li>
-                                <li><a href="account-login.html">Login</a></li>
-                                <li><a href="account-register.html">Register</a></li>
-                                <li><a href="page-not-found.html">Page Not Found</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">Shop</a>
+                        <li><a href="/">Главна страна</a></li>
+                        <li><a href="/shop">Продавница</a>
                             <ul class="sub-menu">
                                 <li><a href="#">Shop Layout</a>
                                     <ul class="sub-menu">
@@ -803,25 +788,7 @@
                                 </li>
                             </ul>
                         </li>
-                        <li><a href="#">Blog</a>
-                            <ul class="sub-menu">
-                                <li><a href="#">Blog Layout</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="blog.html">Blog Grid</a></li>
-                                        <li><a href="blog-left-sidebar.html">Blog Left Sidebar</a></li>
-                                        <li><a href="blog-right-sidebar.html">Blog Right Sidebar</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">Single Blog</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="blog-details-no-sidebar.html">Blog Details</a></li>
-                                        <li><a href="blog-details-left-sidebar.html">Blog Details Left Sidebar</a></li>
-                                        <li><a href="blog-details.html">Blog Details Right Sidebar</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="/contact">Контакт</a></li>
                     </ul>
                 </div>
                 <!-- Mobile Menu End -->
