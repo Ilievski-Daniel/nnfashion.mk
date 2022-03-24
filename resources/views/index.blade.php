@@ -50,7 +50,7 @@
             <div class="header-top-align">
               <div class="header-top-align-start">
                 <div class="desc">
-                  <p><b>Бесплатна достава низ цела Македонија<b></p>
+                  <p><b>Бесплатна достава низ цела Македонија 🇲🇰<b></p>
                 </div>
               </div>
               <div class="header-top-align-end">
