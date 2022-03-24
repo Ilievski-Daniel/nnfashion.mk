@@ -3221,11 +3221,11 @@ table p {
   }
 }
 .product-area.product-single-area .container {
-  padding-bottom: 109px;
+  padding-bottom: 30px;
 }
 @media only screen and (max-width: 1199px) {
   .product-area.product-single-area .container {
-    padding-bottom: 85px;
+    padding-bottom: 20px;
   }
 }
 
