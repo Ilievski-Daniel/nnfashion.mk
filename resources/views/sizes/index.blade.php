@@ -77,32 +77,39 @@
             
         </header>
         <div class="container">
-            <form action="{{ route('product.add') }}" method="POST">
-                @csrf
-                <label for="">Product name</label> <br>
-                <input type="text" name="name" id="name"> <br>
-                <label for="">About product:</label> <br>
-                <input type="text" name="description" id="description"> <br>
-                <label for="">Price</label> <br>
-                <input type="text" name="price" id="price"> <br>
-                <label for="">Category:</label> <br>
-                <select name="category[]" id="category" multiple>
-                    @foreach ($categories as $category)
-                        <option value="{{ $category->id }}">{{ $category->name }}</option>
-                    @endforeach
-                </select>
-                <br>
-                @foreach ($colors as $color)
-                    <input type="checkbox" name="colors[]" class="p-3" value="{{ $color->id }}">
-                    <label for="">{{ $color->name }}</label>
-                @endforeach
-                            <br>
-                @foreach ($sizes as $size)
-                    <input type="checkbox" name="size[]" value="{{ $size->id }}">
-                    <label for="">{{ $size->sizename }}</label>
-                @endforeach
-                <input type="submit" value="Submit">
-            </form>
+            <div class="row">
+                <div class="col-sm-3">
+                    <ul>
+                        <li><a href="{{ route('categories') }}">-Categories</a></li>
+                        <li><a href="{{ route('products') }}">-Products</a></li>
+                        <li><a href="{{ route('sizes') }}">-Sizes</a></li>
+                        <li><a href="{{ route('colors') }}">-Colors</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-9">
+                    <button type="submit">
+                        <a href="{{ route('sizes.create') }}">Create sizes</a>
+                    </button>
+                    <br>
+                    @forelse ($sizes as $size)
+                        <div class="flex">
+                            {{ $size->sizename }} <br>
+                        <button class="submit">
+                            <a href="{{ route('sizes.edit', $size->id) }}" class="text-green-500">Edit size</a>
+                        </button>
+                        <br>
+                        <form action="{{ route('sizes.delete', $size->id) }}" method="post">
+                            @csrf
+                            @method('DELETE')
+                            <input type="submit" name="submit" value="Delete size">
+                        </form>
+                        </div>
+                    @empty
+                        <p>There are no sizes</p>
+                    @endforelse
+                    
+                </div>
+            </div>
         </div>
     </div>
 </body>

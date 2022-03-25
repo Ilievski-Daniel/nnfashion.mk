@@ -5,12 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Size extends Model
+class Category extends Model
 {
     use HasFactory;
-
     protected $fillable = [
-        'sizename'
+        'name'
     ];
     public function products(){
         return $this->belongsToMany(Product::class);

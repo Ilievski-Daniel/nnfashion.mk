@@ -12,7 +12,7 @@
     <title>NNFashion - Modern boutique</title>
 
     <!--== Favicon ==-->
-    <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon" />
 
     <!--== Google Fonts ==-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,20 +22,20 @@
         rel="stylesheet">
 
     <!--== Bootstrap CSS ==-->
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet" />
     <!--== Font Awesome Min Icon CSS ==-->
-    <link href="assets/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="/assets/css/font-awesome.min.css" rel="stylesheet" />
     <!--== Pe7 Stroke Icon CSS ==-->
-    <link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
+    <link href="/assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
     <!--== Swiper CSS ==-->
-    <link href="assets/css/swiper.min.css" rel="stylesheet" />
+    <link href="/assets/css/swiper.min.css" rel="stylesheet" />
     <!--== Fancybox Min CSS ==-->
-    <link href="assets/css/fancybox.min.css" rel="stylesheet" />
+    <link href="/assets/css/fancybox.min.css" rel="stylesheet" />
     <!--== Aos Min CSS ==-->
-    <link href="assets/css/aos.min.css" rel="stylesheet" />
+    <link href="/assets/css/aos.min.css" rel="stylesheet" />
 
     <!--== Main Style CSS ==-->
-    <link href="assets/css/style.css" rel="stylesheet" />
+    <link href="/assets/css/style.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -82,9 +82,9 @@
                                 <div class="header-middle-align-start">
                                     <div class="header-logo-area">
                                         <a href="index.html">
-                                            <img class="logo-main" src="assets/img/logo.webp" width="131"
+                                            <img class="logo-main" src="/assets/img/logo.webp" width="131"
                                                 height="34" alt="Logo" />
-                                            <img class="logo-light" src="assets/img/logo-light.webp" width="131"
+                                            <img class="logo-light" src="/assets/img/logo-light.webp" width="131"
                                                 height="34" alt="Logo" />
                                         </a>
                                     </div>
@@ -191,7 +191,7 @@
 
         <main class="main-content">
             <!--== Start Page Header Area Wrapper ==-->
-            <div class="page-header-area" data-bg-img="assets/img/photos/bg3.webp">
+            <div class="page-header-area" data-bg-img="/assets/img/photos/bg3.webp">
                 <div class="container pt--0 pb--0">
                     <div class="row">
                         <div class="col-12">
@@ -227,36 +227,36 @@
                                                 <div class="swiper-wrapper">
                                                     <div class="swiper-slide">
                                                         <a class="lightbox-image" data-fancybox="gallery"
-                                                            href="assets/img/shop/product-single/1.webp">
-                                                            <img src="assets/img/shop/product-single/1.webp" width="570"
+                                                            href="/assets/img/shop/product-single/1.webp">
+                                                            <img src="/assets/img/shop/product-single/1.webp" width="570"
                                                                 height="541" alt="Image-HasTech">
                                                         </a>
                                                     </div>
                                                     <div class="swiper-slide">
                                                         <a class="lightbox-image" data-fancybox="gallery"
-                                                            href="assets/img/shop/product-single/2.webp">
-                                                            <img src="assets/img/shop/product-single/2.webp" width="570"
+                                                            href="/assets/img/shop/product-single/2.webp">
+                                                            <img src="/assets/img/shop/product-single/2.webp" width="570"
                                                                 height="541" alt="Image-HasTech">
                                                         </a>
                                                     </div>
                                                     <div class="swiper-slide">
                                                         <a class="lightbox-image" data-fancybox="gallery"
-                                                            href="assets/img/shop/product-single/3.webp">
-                                                            <img src="assets/img/shop/product-single/3.webp" width="570"
+                                                            href="/assets/img/shop/product-single/3.webp">
+                                                            <img src="/assets/img/shop/product-single/3.webp" width="570"
                                                                 height="541" alt="Image-HasTech">
                                                         </a>
                                                     </div>
                                                     <div class="swiper-slide">
                                                         <a class="lightbox-image" data-fancybox="gallery"
-                                                            href="assets/img/shop/product-single/4.webp">
-                                                            <img src="assets/img/shop/product-single/4.webp" width="570"
+                                                            href="/assets/img/shop/product-single/4.webp">
+                                                            <img src="/assets/img/shop/product-single/4.webp" width="570"
                                                                 height="541" alt="Image-HasTech">
                                                         </a>
                                                     </div>
                                                     <div class="swiper-slide">
                                                         <a class="lightbox-image" data-fancybox="gallery"
-                                                            href="assets/img/shop/product-single/5.webp">
-                                                            <img src="assets/img/shop/product-single/5.webp" width="570"
+                                                            href="/assets/img/shop/product-single/5.webp">
+                                                            <img src="/assets/img/shop/product-single/5.webp" width="570"
                                                                 height="541" alt="Image-HasTech">
                                                         </a>
                                                     </div>
@@ -265,23 +265,23 @@
                                             <div class="swiper-container single-product-nav single-product-nav-slider">
                                                 <div class="swiper-wrapper">
                                                     <div class="swiper-slide">
-                                                        <img src="assets/img/shop/product-single/nav-1.webp" width="127"
+                                                        <img src="/assets/img/shop/product-single/nav-1.webp" width="127"
                                                             height="127" alt="Image-HasTech">
                                                     </div>
                                                     <div class="swiper-slide">
-                                                        <img src="assets/img/shop/product-single/nav-2.webp" width="127"
+                                                        <img src="/assets/img/shop/product-single/nav-2.webp" width="127"
                                                             height="127" alt="Image-HasTech">
                                                     </div>
                                                     <div class="swiper-slide">
-                                                        <img src="assets/img/shop/product-single/nav-3.webp" width="127"
+                                                        <img src="/assets/img/shop/product-single/nav-3.webp" width="127"
                                                             height="127" alt="Image-HasTech">
                                                     </div>
                                                     <div class="swiper-slide">
-                                                        <img src="assets/img/shop/product-single/nav-4.webp" width="127"
+                                                        <img src="/assets/img/shop/product-single/nav-4.webp" width="127"
                                                             height="127" alt="Image-HasTech">
                                                     </div>
                                                     <div class="swiper-slide">
-                                                        <img src="assets/img/shop/product-single/nav-5.webp" width="127"
+                                                        <img src="/assets/img/shop/product-single/nav-5.webp" width="127"
                                                             height="127" alt="Image-HasTech">
                                                     </div>
                                                 </div>
@@ -292,17 +292,14 @@
                                     <div class="col-xl-6">
                                         <!--== Start Product Info Area ==-->
                                         <div class="product-single-info">
-                                            <h3 class="main-title">Leather Mens Slipper</h3>
+                                            <h3 class="main-title">{{ $product->name }}</h3>
                                             <div class="prices">
-                                                <span class="price">$20.19</span>
+                                                <span class="price">${{ $product->price }}</span>
                                             </div>
                                             <div class="rating-box-wrap">
                                                 <div class="rating-box"></div>
                                             </div>
-                                            Lorem ipsum dolor sit amet, consecte adipisicing elit, sed do eiusmll
-                                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad mill
-                                            veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip exet
-                                            commodo consequat. Duis aute irure dolor
+                                            {{ $product->description }}
                                             <div class="product-color">
                                                 <h6 class="title">Бојa</h6>
                                                 <ul class="color-list">
@@ -363,7 +360,7 @@
                                                         <div class="inner-content">
                                                             <div class="product-thumb">
                                                                 <a href="single-product.html">
-                                                                    <img src="assets/img/shop/1.webp" width="270"
+                                                                    <img src="/assets/img/shop/1.webp" width="270"
                                                                         height="274" alt="Image-HasTech">
                                                                 </a>
                                                                 <div class="product-flag">
@@ -412,7 +409,7 @@
                                                         <div class="inner-content">
                                                             <div class="product-thumb">
                                                                 <a href="single-product.html">
-                                                                    <img src="assets/img/shop/7.webp" width="270"
+                                                                    <img src="/assets/img/shop/7.webp" width="270"
                                                                         height="274" alt="Image-HasTech">
                                                                 </a>
                                                                 <div class="product-action">
@@ -454,7 +451,7 @@
                                                         <div class="inner-content">
                                                             <div class="product-thumb">
                                                                 <a href="single-product.html">
-                                                                    <img src="assets/img/shop/3.webp" width="270"
+                                                                    <img src="/assets/img/shop/3.webp" width="270"
                                                                         height="274" alt="Image-HasTech">
                                                                 </a>
                                                                 <div class="product-flag">
@@ -503,7 +500,7 @@
                                                         <div class="inner-content">
                                                             <div class="product-thumb">
                                                                 <a href="single-product.html">
-                                                                    <img src="assets/img/shop/4.webp" width="270"
+                                                                    <img src="/assets/img/shop/4.webp" width="270"
                                                                         height="274" alt="Image-HasTech">
                                                                 </a>
                                                                 <div class="product-action">
@@ -545,7 +542,7 @@
                                                         <div class="inner-content">
                                                             <div class="product-thumb">
                                                                 <a href="single-product.html">
-                                                                    <img src="assets/img/shop/5.webp" width="270"
+                                                                    <img src="/assets/img/shop/5.webp" width="270"
                                                                         height="274" alt="Image-HasTech">
                                                                 </a>
                                                                 <div class="product-action">
@@ -589,7 +586,7 @@
                                                         <div class="inner-content">
                                                             <div class="product-thumb">
                                                                 <a href="single-product.html">
-                                                                    <img src="assets/img/shop/6.webp" width="270"
+                                                                    <img src="/assets/img/shop/6.webp" width="270"
                                                                         height="274" alt="Image-HasTech">
                                                                 </a>
                                                                 <div class="product-flag">
@@ -664,7 +661,7 @@
                         </div>
                         <div class="col-md-5 col-lg-6">
                             <div class="payment">
-                                <a href="/shop"><img src="assets/img/photos/payment-card.webp" width="192" height="21"
+                                <a href="/shop"><img src="/assets/img/photos/payment-card.webp" width="192" height="21"
                                         alt="Payment Logo"></a>
                             </div>
                         </div>
@@ -688,7 +685,7 @@
                     <li class="product-list-item">
                         <a href="#/" class="remove">×</a>
                         <a href="single-product.html">
-                            <img src="assets/img/shop/product-mini/1.webp" width="90" height="110" alt="Image-HasTech">
+                            <img src="/assets/img/shop/product-mini/1.webp" width="90" height="110" alt="Image-HasTech">
                             <span class="product-title">Leather Mens Slipper</span>
                         </a>
                         <span class="product-price">1 × £69.99</span>
@@ -696,7 +693,7 @@
                     <li class="product-list-item">
                         <a href="#/" class="remove">×</a>
                         <a href="single-product.html">
-                            <img src="assets/img/shop/product-mini/2.webp" width="90" height="110" alt="Image-HasTech">
+                            <img src="/assets/img/shop/product-mini/2.webp" width="90" height="110" alt="Image-HasTech">
                             <span class="product-title">Quickiin Mens shoes</span>
                         </a>
                         <span class="product-price">1 × £20.00</span>
@@ -800,30 +797,30 @@
     <!--=======================Javascript============================-->
 
     <!--=== jQuery Modernizr Min Js ===-->
-    <script src="assets/js/modernizr.js"></script>
+    <script src="/assets/js/modernizr.js"></script>
     <!--=== jQuery Min Js ===-->
-    <script src="assets/js/jquery-main.js"></script>
+    <script src="/assets/js/jquery-main.js"></script>
     <!--=== jQuery Migration Min Js ===-->
-    <script src="assets/js/jquery-migrate.js"></script>
+    <script src="/assets/js/jquery-migrate.js"></script>
     <!--=== jQuery Popper Min Js ===-->
-    <script src="assets/js/popper.min.js"></script>
+    <script src="/assets/js/popper.min.js"></script>
     <!--=== jQuery Bootstrap Min Js ===-->
-    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="/assets/js/bootstrap.min.js"></script>
     <!--=== jQuery Ui Min Js ===-->
-    <script src="assets/js/jquery-ui.min.js"></script>
+    <script src="/assets/js/jquery-ui.min.js"></script>
     <!--=== jQuery Swiper Min Js ===-->
-    <script src="assets/js/swiper.min.js"></script>
+    <script src="/assets/js/swiper.min.js"></script>
     <!--=== jQuery Fancybox Min Js ===-->
-    <script src="assets/js/fancybox.min.js"></script>
+    <script src="/assets/js/fancybox.min.js"></script>
     <!--=== jQuery Waypoint Js ===-->
-    <script src="assets/js/waypoint.js"></script>
+    <script src="/assets/js/waypoint.js"></script>
     <!--=== jQuery Parallax Min Js ===-->
-    <script src="assets/js/parallax.min.js"></script>
+    <script src="/assets/js/parallax.min.js"></script>
     <!--=== jQuery Aos Min Js ===-->
-    <script src="assets/js/aos.min.js"></script>
+    <script src="/assets/js/aos.min.js"></script>
 
     <!--=== jQuery Custom Js ===-->
-    <script src="assets/js/custom.js"></script>
+    <script src="/assets/js/custom.js"></script>
 
 </body>
 

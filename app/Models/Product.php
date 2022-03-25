@@ -14,4 +14,13 @@ class Product extends Model
         'description',
         'price'
     ];
+    public function sizes(){
+        return $this->belongsToMany(Size::class);
+    }
+    public function colors(){
+        return $this->belongsToMany(Color::class, 'product_color');
+    }
+    public function categories(){
+        return $this->belongsToMany(Category::class);
+    }
 }

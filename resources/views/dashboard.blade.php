@@ -80,10 +80,10 @@
             <div class="row">
                 <div class="col-sm-3">
                     <ul>
-                        <li><a href="">-Products</a></li>
-                        <li><a href="">-Users</a></li>
-                        <li></li>
-                        <li></li>
+                        <li><a href="{{ route('categories') }}">-Categories</a></li>
+                        <li><a href="{{ route('products') }}">-Products</a></li>
+                        <li><a href="{{ route('sizes') }}">-Sizes</a></li>
+                        <li><a href="{{ route('colors') }}">-Colors</a></li>
                     </ul>
                 </div>
                 <div class="col-sm-9">
@@ -91,23 +91,6 @@
                         <a href="{{ route('product.add') }}">Create products</a>
                     </button>
                     <br>
-                    @forelse ($products as $product)
-                        {{ $product->name }} <br>
-                        {{ $product->description }} <br>
-                        {{ $product->price }}
-                        <form action="">
-                            @foreach ($colors as $color)
-                                <input type="checkbox" name="colors[]">
-                                <label for="">{{ $color->name }}</label>
-                            @endforeach
-                            @foreach ($sizes as $size)
-                                <input type="checkbox" name="size[]">
-                                <label for="">{{ $size->sizename }}</label>
-                            @endforeach
-                        </form>
-                    @empty
-                        <p>There are no products</p>
-                    @endforelse
 
                 </div>
             </div>

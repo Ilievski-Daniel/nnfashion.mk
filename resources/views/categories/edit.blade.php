@@ -77,31 +77,12 @@
             
         </header>
         <div class="container">
-            <form action="{{ route('product.add') }}" method="POST">
+            <form action="{{ route('categories.update', $category->id) }}" method="POST">
                 @csrf
-                <label for="">Product name</label> <br>
-                <input type="text" name="name" id="name"> <br>
-                <label for="">About product:</label> <br>
-                <input type="text" name="description" id="description"> <br>
-                <label for="">Price</label> <br>
-                <input type="text" name="price" id="price"> <br>
-                <label for="">Category:</label> <br>
-                <select name="category[]" id="category" multiple>
-                    @foreach ($categories as $category)
-                        <option value="{{ $category->id }}">{{ $category->name }}</option>
-                    @endforeach
-                </select>
-                <br>
-                @foreach ($colors as $color)
-                    <input type="checkbox" name="colors[]" class="p-3" value="{{ $color->id }}">
-                    <label for="">{{ $color->name }}</label>
-                @endforeach
-                            <br>
-                @foreach ($sizes as $size)
-                    <input type="checkbox" name="size[]" value="{{ $size->id }}">
-                    <label for="">{{ $size->sizename }}</label>
-                @endforeach
-                <input type="submit" value="Submit">
+                @method('PUT')
+                <label for="">Category name:</label> <br>
+                <input type="text" name="editedname" id="editedname" value="{{ $category->name }}"> <br>
+                <input type="submit" name="submit" value="Submit">
             </form>
         </div>
     </div>
