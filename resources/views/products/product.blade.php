@@ -292,43 +292,48 @@
                                     <div class="col-xl-6">
                                         <!--== Start Product Info Area ==-->
                                         <div class="product-single-info">
-                                            <h3 class="main-title">{{ $product->name }}</h3>
-                                            <div class="prices">
-                                                <span class="price">${{ $product->price }}</span>
-                                            </div>
-                                            <div class="rating-box-wrap">
-                                                <div class="rating-box"></div>
-                                            </div>
-                                            {{ $product->description }}
-                                            <div class="product-color">
-                                                <h6 class="title">Бојa</h6>
-                                                <ul class="color-list">
-                                                    <li data-bg-color="#586882"></li>
-                                                    <li class="active" data-bg-color="#505050"></li>
-                                                    <li data-bg-color="#73707a"></li>
-                                                    <li data-bg-color="#c7bb9b"></li>
-                                                </ul>
-                                            </div>
-                                            <div class="product-size">
-                                                <h6 class="title">Големина</h6>
-                                                <ul class="size-list">
-                                                    <li>S</li>
-                                                    <li class="active">M</li>
-                                                    <li>L</li>
-                                                    <li>XL</li>
-                                                </ul>
-                                            </div>
-                                            <div class="product-quick-action">
-                                                <div class="qty-wrap">
-                                                    <div class="pro-qty">
-                                                        <input type="text" title="Quantity" value="1">
-                                                    </div>
+                                            <form action="{{ route('add.cart', $product->id) }}", method="post">
+                                                @csrf
+                                                    <input type="text" name="productname" id="productname" value="{{ $product->name }}" hidden>
+                                                    <h3 class="main-title">{{ $product->name }}</h3>
+                                                <div class="prices">
+                                                    <input type="text" name="productprice" id="productprice" value="{{ $product->price }}" hidden>
+                                                    <span class="price">${{ $product->price }}</span>
                                                 </div>
-                                                <a class="btn-theme" href="shop-cart.html">Add to Cart</a>
-                                            </div>
-                                            <div class="product-wishlist-compare">
-
-                                            </div>
+                                                <div class="rating-box-wrap">
+                                                    <div class="rating-box"></div>
+                                                </div>
+                                                <input type="text" name="productdescription" id="productdescription" value="{{ $product->description }}" hidden>
+                                                {{ $product->description }}
+                                                <div class="product-color">
+                                                    <h6 class="title">Бојa</h6>
+                                                    <ul class="color-list">
+                                                        @foreach ($product->colors as $color)
+                                                        <input type="checkbox" name="colors[]">
+                                                        <li data-bg-color="#586882">{{ $color->name }}</li>
+                                                        @endforeach
+                                                    </ul>
+                                                </div>
+                                                <div class="product-size">
+                                                    <h6 class="title">Големина</h6>
+                                                    <ul class="size-list">
+                                                        @foreach ($product->sizes as $size)
+                                                        <input type="checkbox" name="sizes[]">
+                                                        <li>{{ $size->sizename }}</li>
+                                                        @endforeach
+                                                    </ul>
+                                                </div>
+                                                <div class="product-quick-action">
+                                                    <div class="qty-wrap">
+                                                        <div class="pro-qty">
+                                                            <input type="text" name="quantity" title="Quantity" value="1">
+                                                        </div>
+                                                    </div>
+                                                    <button type="input">
+                                                        <input type="submit" name="submit" value="Add to Cart" class="btn-theme">
+                                                    </button>
+                                                </div>
+                                            </form>
                                         </div>
                                         <!--== End Product Info Area ==-->
                                     </div>
@@ -354,6 +359,7 @@
                                     <div class="product-slider-wrap">
                                         <div class="swiper-container product-slider-col4-container">
                                             <div class="swiper-wrapper">
+                                                @foreach ($category->products as $product)
                                                 <div class="swiper-slide">
                                                     <!--== Start Product Item ==-->
                                                     <div class="product-item">
@@ -385,250 +391,20 @@
                                                             <div class="product-info">
                                                                 <div class="category">
                                                                     <ul>
-                                                                        <li><a href="shop.html">Men</a></li>
-                                                                        <li class="sep">/</li>
-                                                                        <li><a href="shop.html">Women</a></li>
+                                                                        <li><a href="shop.html">{{ $category->name }}</a></li>
                                                                     </ul>
                                                                 </div>
                                                                 <h4 class="title"><a
-                                                                        href="single-product.html">Modern
-                                                                        Smart Shoes</a></h4>
+                                                                        href="single-product.html">{{ $product->name }}</a></h4>
                                                                 <div class="prices">
-                                                                    <span class="price-old">$300</span>
-                                                                    <span class="sep">-</span>
-                                                                    <span class="price">$240.00</span>
+                                                                    <span class="price">${{ $product->price }}</span>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <!--== End prPduct Item ==-->
                                                 </div>
-                                                <div class="swiper-slide">
-                                                    <!--== Start Product Item ==-->
-                                                    <div class="product-item">
-                                                        <div class="inner-content">
-                                                            <div class="product-thumb">
-                                                                <a href="single-product.html">
-                                                                    <img src="/assets/img/shop/7.webp" width="270"
-                                                                        height="274" alt="Image-HasTech">
-                                                                </a>
-                                                                <div class="product-action">
-                                                                    <a class="btn-product-wishlist"
-                                                                        href="shop-wishlist.html"><i
-                                                                            class="fa fa-heart"></i></a>
-                                                                    <a class="btn-product-cart"
-                                                                        href="shop-cart.html"><i
-                                                                            class="fa fa-shopping-cart"></i></a>
-                                                                    <button type="button"
-                                                                        class="btn-product-quick-view-open">
-                                                                        <i class="fa fa-arrows"></i>
-                                                                    </button>
-                                                                </div>
-                                                                <a class="banner-link-overlay" href="shop.html"></a>
-                                                            </div>
-                                                            <div class="product-info">
-                                                                <div class="category">
-                                                                    <ul>
-                                                                        <li><a href="shop.html">Men</a></li>
-                                                                        <li class="sep">/</li>
-                                                                        <li><a href="shop.html">Women</a></li>
-                                                                    </ul>
-                                                                </div>
-                                                                <h4 class="title"><a
-                                                                        href="single-product.html">Quickiin Mens
-                                                                        shoes</a></h4>
-                                                                <div class="prices">
-                                                                    <span class="price">$240.00</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <!--== End prPduct Item ==-->
-                                                </div>
-                                                <div class="swiper-slide">
-                                                    <!--== Start Product Item ==-->
-                                                    <div class="product-item">
-                                                        <div class="inner-content">
-                                                            <div class="product-thumb">
-                                                                <a href="single-product.html">
-                                                                    <img src="/assets/img/shop/3.webp" width="270"
-                                                                        height="274" alt="Image-HasTech">
-                                                                </a>
-                                                                <div class="product-flag">
-                                                                    <ul>
-                                                                        <li class="discount">-10%</li>
-                                                                    </ul>
-                                                                </div>
-                                                                <div class="product-action">
-                                                                    <a class="btn-product-wishlist"
-                                                                        href="shop-wishlist.html"><i
-                                                                            class="fa fa-heart"></i></a>
-                                                                    <a class="btn-product-cart"
-                                                                        href="shop-cart.html"><i
-                                                                            class="fa fa-shopping-cart"></i></a>
-                                                                    <button type="button"
-                                                                        class="btn-product-quick-view-open">
-                                                                        <i class="fa fa-arrows"></i>
-                                                                    </button>
-                                                                </div>
-                                                                <a class="banner-link-overlay" href="shop.html"></a>
-                                                            </div>
-                                                            <div class="product-info">
-                                                                <div class="category">
-                                                                    <ul>
-                                                                        <li><a href="shop.html">Men</a></li>
-                                                                        <li class="sep">/</li>
-                                                                        <li><a href="shop.html">Women</a></li>
-                                                                    </ul>
-                                                                </div>
-                                                                <h4 class="title"><a
-                                                                        href="single-product.html">Rexpo
-                                                                        Womens shoes</a></h4>
-                                                                <div class="prices">
-                                                                    <span class="price-old">$300</span>
-                                                                    <span class="sep">-</span>
-                                                                    <span class="price">$240.00</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <!--== End prPduct Item ==-->
-                                                </div>
-                                                <div class="swiper-slide">
-                                                    <!--== Start Product Item ==-->
-                                                    <div class="product-item">
-                                                        <div class="inner-content">
-                                                            <div class="product-thumb">
-                                                                <a href="single-product.html">
-                                                                    <img src="/assets/img/shop/4.webp" width="270"
-                                                                        height="274" alt="Image-HasTech">
-                                                                </a>
-                                                                <div class="product-action">
-                                                                    <a class="btn-product-wishlist"
-                                                                        href="shop-wishlist.html"><i
-                                                                            class="fa fa-heart"></i></a>
-                                                                    <a class="btn-product-cart"
-                                                                        href="shop-cart.html"><i
-                                                                            class="fa fa-shopping-cart"></i></a>
-                                                                    <button type="button"
-                                                                        class="btn-product-quick-view-open">
-                                                                        <i class="fa fa-arrows"></i>
-                                                                    </button>
-                                                                </div>
-                                                                <a class="banner-link-overlay" href="shop.html"></a>
-                                                            </div>
-                                                            <div class="product-info">
-                                                                <div class="category">
-                                                                    <ul>
-                                                                        <li><a href="shop.html">Men</a></li>
-                                                                        <li class="sep">/</li>
-                                                                        <li><a href="shop.html">Women</a></li>
-                                                                    </ul>
-                                                                </div>
-                                                                <h4 class="title"><a
-                                                                        href="single-product.html">Leather Mens
-                                                                        Slipper</a></h4>
-                                                                <div class="prices">
-                                                                    <span class="price">$240.00</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <!--== End prPduct Item ==-->
-                                                </div>
-                                                <div class="swiper-slide">
-                                                    <!--== Start Product Item ==-->
-                                                    <div class="product-item">
-                                                        <div class="inner-content">
-                                                            <div class="product-thumb">
-                                                                <a href="single-product.html">
-                                                                    <img src="/assets/img/shop/5.webp" width="270"
-                                                                        height="274" alt="Image-HasTech">
-                                                                </a>
-                                                                <div class="product-action">
-                                                                    <a class="btn-product-wishlist"
-                                                                        href="shop-wishlist.html"><i
-                                                                            class="fa fa-heart"></i></a>
-                                                                    <a class="btn-product-cart"
-                                                                        href="shop-cart.html"><i
-                                                                            class="fa fa-shopping-cart"></i></a>
-                                                                    <button type="button"
-                                                                        class="btn-product-quick-view-open">
-                                                                        <i class="fa fa-arrows"></i>
-                                                                    </button>
-                                                                </div>
-                                                                <a class="banner-link-overlay" href="shop.html"></a>
-                                                            </div>
-                                                            <div class="product-info">
-                                                                <div class="category">
-                                                                    <ul>
-                                                                        <li><a href="shop.html">Men</a></li>
-                                                                        <li class="sep">/</li>
-                                                                        <li><a href="shop.html">Women</a></li>
-                                                                    </ul>
-                                                                </div>
-                                                                <h4 class="title"><a
-                                                                        href="single-product.html">Primitive Mens
-                                                                        shoes</a></h4>
-                                                                <div class="prices">
-                                                                    <span class="price-old">$300</span>
-                                                                    <span class="sep">-</span>
-                                                                    <span class="price">$240.00</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <!--== End prPduct Item ==-->
-                                                </div>
-                                                <div class="swiper-slide">
-                                                    <!--== Start Product Item ==-->
-                                                    <div class="product-item">
-                                                        <div class="inner-content">
-                                                            <div class="product-thumb">
-                                                                <a href="single-product.html">
-                                                                    <img src="/assets/img/shop/6.webp" width="270"
-                                                                        height="274" alt="Image-HasTech">
-                                                                </a>
-                                                                <div class="product-flag">
-                                                                    <ul>
-                                                                        <li class="discount">-10%</li>
-                                                                    </ul>
-                                                                </div>
-                                                                <div class="product-action">
-                                                                    <a class="btn-product-wishlist"
-                                                                        href="shop-wishlist.html"><i
-                                                                            class="fa fa-heart"></i></a>
-                                                                    <a class="btn-product-cart"
-                                                                        href="shop-cart.html"><i
-                                                                            class="fa fa-shopping-cart"></i></a>
-                                                                    <button type="button"
-                                                                        class="btn-product-quick-view-open">
-                                                                        <i class="fa fa-arrows"></i>
-                                                                    </button>
-                                                                </div>
-                                                                <a class="banner-link-overlay" href="shop.html"></a>
-                                                            </div>
-                                                            <div class="product-info">
-                                                                <div class="category">
-                                                                    <ul>
-                                                                        <li><a href="shop.html">Men</a></li>
-                                                                        <li class="sep">/</li>
-                                                                        <li><a href="shop.html">Women</a></li>
-                                                                    </ul>
-                                                                </div>
-                                                                <h4 class="title"><a
-                                                                        href="single-product.html">Simple
-                                                                        Fabric Shoe</a></h4>
-                                                                <div class="prices">
-                                                                    <span class="price-old">$300</span>
-                                                                    <span class="sep">-</span>
-                                                                    <span class="price">$240.00</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <!--== End prPduct Item ==-->
-                                                </div>
+                                                @endforeach
                                             </div>
                                         </div>
                                         <!--== Add Swiper Arrows ==-->

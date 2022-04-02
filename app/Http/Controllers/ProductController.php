@@ -65,6 +65,11 @@ class ProductController extends Controller
     }
     public function singleProduct($id){
         $product = Product::find($id);
-       return view('products.product', compact('product'));
+        $related = $product->categories;
+        foreach($related as $relatedproduct){
+            $categoryId = ($relatedproduct->id);
+        }
+        $category = Category::where('id', $categoryId)->first();
+       return view('products.product', compact('product', 'category'));
     }
 }

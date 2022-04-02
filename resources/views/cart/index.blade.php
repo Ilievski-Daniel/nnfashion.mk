@@ -230,6 +230,7 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            @forelse ($cartproducts as $cartproduct)
                                             <tr class="cart-product-item">
                                                 <td class="product-remove">
                                                     <a href="#/"><i class="fa fa-trash-o"></i></a>
@@ -241,76 +242,24 @@
                                                     </a>
                                                 </td>
                                                 <td class="product-name">
-                                                    <h4 class="title"><a href="single-product.html">Leather
-                                                            Mens Slipper</a></h4>
+                                                    <h4 class="title"><a href="single-product.html">{{ $cartproduct->productName }}</a></h4>
                                                 </td>
                                                 <td class="product-price">
-                                                    <span class="price">£69.99</span>
+                                                    <span class="price">£{{ $cartproduct->productPrice }}</span>
                                                 </td>
                                                 <td class="product-quantity">
-                                                    <div class="pro-qty">
-                                                        <input type="text" class="quantity" title="Quantity"
-                                                            value="1">
-                                                    </div>
+                                                        {{ $cartproduct->quantity }}
                                                 </td>
+                                                @php
+                                                    $total = ($cartproduct->productPrice)*$cartproduct->quantity
+                                                @endphp
                                                 <td class="product-subtotal">
-                                                    <span class="price">£69.99</span>
+                                                    <span class="price">£{{ $total }}</span>
                                                 </td>
                                             </tr>
-                                            <tr class="cart-product-item">
-                                                <td class="product-remove">
-                                                    <a href="#/"><i class="fa fa-trash-o"></i></a>
-                                                </td>
-                                                <td class="product-thumb">
-                                                    <a href="single-product.html">
-                                                        <img src="assets/img/shop/product-mini/2.webp" width="90"
-                                                            height="110" alt="Image-HasTech">
-                                                    </a>
-                                                </td>
-                                                <td class="product-name">
-                                                    <h4 class="title"><a href="single-product.html">Quickiin
-                                                            Mens shoes</a></h4>
-                                                </td>
-                                                <td class="product-price">
-                                                    <span class="price">£20.00</span>
-                                                </td>
-                                                <td class="product-quantity">
-                                                    <div class="pro-qty">
-                                                        <input type="text" class="quantity" title="Quantity"
-                                                            value="1">
-                                                    </div>
-                                                </td>
-                                                <td class="product-subtotal">
-                                                    <span class="price">£20.00</span>
-                                                </td>
-                                            </tr>
-                                            <tr class="cart-product-item">
-                                                <td class="product-remove">
-                                                    <a href="#/"><i class="fa fa-trash-o"></i></a>
-                                                </td>
-                                                <td class="product-thumb">
-                                                    <a href="single-product.html">
-                                                        <img src="assets/img/shop/product-mini/3.webp" width="90"
-                                                            height="110" alt="Image-HasTech">
-                                                    </a>
-                                                </td>
-                                                <td class="product-name">
-                                                    <h4 class="title"><a href="single-product.html">Rexpo
-                                                            Womens shoes</a></h4>
-                                                </td>
-                                                <td class="product-price">
-                                                    <span class="price">£39.00</span>
-                                                </td>
-                                                <td class="product-quantity">
-                                                    <div class="pro-qty">
-                                                        <input type="text" class="quantity" title="Quantity"
-                                                            value="1">
-                                                    </div>
-                                                </td>
-                                                <td class="product-subtotal">
-                                                    <span class="price">£39.00</span>
-                                                </td>
-                                            </tr>
+                                            @empty  
+                                                No products in your cart
+                                            @endforelse
                                             <tr class="actions">
                                                 <td class="border-0" colspan="6">
                                                     <button type="submit" class="update-cart" disabled>Освежи

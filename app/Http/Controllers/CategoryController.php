@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Product;
+use App\Models\Size;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CategoryController extends Controller
 {
@@ -33,5 +36,11 @@ class CategoryController extends Controller
     public function destroy($id){
         Category::where('id', $id)->delete();
         return back();
+    }
+    public function viewByCategory($id){
+        $categories = Category::where('id', $id)->first();
+        $categories1 = Category::all();
+        $sizes = Size::all();
+        return view('categories.view', compact('categories', 'categories1', 'sizes'));
     }
 }

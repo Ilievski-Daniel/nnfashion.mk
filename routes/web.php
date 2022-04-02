@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ColorController;
 use App\Http\Controllers\DashboardController;
@@ -21,7 +22,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('index');
+    $products = Product::orderBy('created_at', 'desc')->paginate(8);
+    return view('index', compact('products'));
 });
 Route::get('/contact', function () {
     return view('contact');
@@ -49,6 +51,7 @@ Route::post('/category/create', [CategoryController::class, 'store'])->name('cat
 Route::get('/categories/edit/{id}', [CategoryController::class, 'edit'])->name('categories.edit');
 Route::put('categories/update/{id}', [CategoryController::class, 'update'])->name('categories.update');
 Route::delete('categories/delete/{id}', [CategoryController::class, 'destroy'])->name('categories.delete');
+Route::get('/category/view/{id}', [CategoryController::class, 'viewByCategory'])->name('category.view');
 
 
 Route::get('/sizes', [SizeController::class, 'index'])->name('sizes');
@@ -64,3 +67,8 @@ Route::post('/colors/create', [ColorController::class, 'store']);
 Route::get('/colors/edit/{id}', [ColorController::class, 'edit'])->name('colors.edit');
 Route::put('/colors/update/{id}', [ColorController::class, 'update'])->name('colors.update');
 Route::delete('colors/delete/{id}', [ColorController::class, 'destroy'])->name('colors.delete');
+
+
+
+Route::get('/cart', [CartController::class, 'index'])->name('cart');
+Route::post('/cart/add/{id}', [CartController::class, 'store'])->name('add.cart');
