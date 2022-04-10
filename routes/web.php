@@ -36,6 +36,11 @@ Route::get('/cart', function () {
     return view('cart');
 });
 
+Route::get('/checkout', function () {
+    return view('checkout');
+});
+
+
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
 Route::get('/shop', [ProductController::class, 'shop'])->name('shop');
