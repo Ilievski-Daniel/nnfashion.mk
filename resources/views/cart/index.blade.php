@@ -1,3 +1,7 @@
+<?php
+use App\Models\Cart;
+
+?>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -217,7 +221,6 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="shopping-cart-form table-responsive">
-                                <form action="#" method="post">
                                     <table class="table text-center">
                                         <thead>
                                             <tr>
@@ -233,7 +236,13 @@
                                             @forelse ($cartproducts as $cartproduct)
                                             <tr class="cart-product-item">
                                                 <td class="product-remove">
-                                                    <a href="#/"><i class="fa fa-trash-o"></i></a>
+                                                    <form action="{{ route('cart.delete', $cartproduct->id) }}" method="POST">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="no-underline">
+                                                            <i class="fa fa-trash-o"></i>
+                                                        </button>
+                                                    </form>
                                                 </td>
                                                 <td class="product-thumb">
                                                     <a href="single-product.html">
@@ -252,6 +261,7 @@
                                                 </td>
                                                 @php
                                                     $total = ($cartproduct->productPrice)*$cartproduct->quantity
+
                                                 @endphp
                                                 <td class="product-subtotal">
                                                     <span class="price">£{{ $total }}</span>
@@ -264,14 +274,17 @@
                                                 <td class="border-0" colspan="6">
                                                     <button type="submit" class="update-cart" disabled>Освежи
                                                         кошничка</button>
-                                                    <button type="submit" class="clear-cart">Исчисти
-                                                        кошничка</button>
+                                                    <form action="{{ route('cart.clear') }}" method="post">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="clear-cart">Исчисти
+                                                            кошничка</button>
+                                                    </form>
                                                     <a href="/shop" class="btn-theme btn-flat">Продавница</a>
                                                 </td>
                                             </tr>
                                         </tbody>
                                     </table>
-                                </form>
                             </div>
                         </div>
                     </div>
@@ -281,6 +294,13 @@
                                 <div class="section-title-cart">
                                     <h5 class="title">Тотал во кошничка</h5>
                                 </div>
+                                @php
+                                    $subtotal = 0;
+                                    foreach($cartproducts as $cartproduct){
+                                        $subtotal += $cartproduct->quantity * $cartproduct->productPrice;
+                                    }
+                                    $total = $subtotal + 30;
+                                @endphp
                                 <div class="cart-total-table">
                                     <table class="table">
                                         <tbody>
@@ -291,7 +311,7 @@
                                                     </b>
                                                 </td>
                                                 <td>
-                                                    <p class="price">£128.00</p>
+                                                    <p class="price">£{{ $subtotal }}</p>
                                                 </td>
                                             </tr>
                                             <tr class="shipping">
@@ -320,7 +340,7 @@
                                                     </b>
                                                 </td>
                                                 <td>
-                                                    <p class="price">£128.00</p>
+                                                    <p class="price">£{{ $total }}</p>
                                                 </td>
                                             </tr>
                                         </tbody>

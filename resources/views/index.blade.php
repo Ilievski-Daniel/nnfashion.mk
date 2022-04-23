@@ -285,7 +285,7 @@
                             <div class="product-item">
                                 <div class="inner-content">
                                     <div class="product-thumb">
-                                        <a href="single-product.html">
+                                        <a href="{{ route('product.view', $product->id) }}">
                                             <img src="assets/img/shop/1.webp" width="270" height="274"
                                                 alt="Image-HasTech">
                                         </a>

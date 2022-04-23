@@ -545,7 +545,7 @@
                                                 $count1 = DB::table('product_size')->where('size_id', $size->id)->count();
                                                 
                                             @endphp
-                                            <li><a href="shop.html">{{ $size->sizename }} <span>({{ $count1 }})</span></a></li>
+                                            <li><a href="{{ route('size.view', $size->id) }}">{{ $size->sizename }} <span>({{ $count1 }})</span></a></li>
                                             @endforeach
                                         </ul>
                                     </div>

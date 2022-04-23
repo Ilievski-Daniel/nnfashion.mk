@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
+use App\Models\Product;
 use App\Models\Size;
 use Illuminate\Http\Request;
 
@@ -34,5 +36,13 @@ class SizeController extends Controller
     public function destroy($id){
         Size::where('id', $id)->delete();
         return back();
+    }
+
+    public function viewBySize($id){
+        $products = Product::all();
+        $sizes = Size::all();
+        $sizes1 = Size::where('id', $id)->first();
+        $categories = Category::all();
+        return view('sizes.view', compact('products', 'sizes', 'categories', 'sizes1'));
     }
 }
