@@ -309,8 +309,8 @@
                                                     <h6 class="title">Бојa</h6>
                                                     <ul class="color-list">
                                                         @foreach ($product->colors as $color)
-                                                        <input type="checkbox" name="colors[]">
-                                                        <li data-bg-color="#586882">{{ $color->name }}</li>
+                                                        <input type="radio" name="colors" value="{{ $color->name }}">
+                                                        <li name="">{{ $color->name }}</li>
                                                         @endforeach
                                                     </ul>
                                                 </div>
@@ -318,8 +318,8 @@
                                                     <h6 class="title">Големина</h6>
                                                     <ul class="size-list">
                                                         @foreach ($product->sizes as $size)
-                                                        <input type="checkbox" name="sizes[]">
-                                                        <li>{{ $size->sizename }}</li>
+                                                        <input type="radio" name="sizes" value="{{ $size->sizename }}">
+                                                        <li name="{{ $size->sizename }}">{{ $size->sizename }}</li>
                                                         @endforeach
                                                     </ul>
                                                 </div>
@@ -354,12 +354,17 @@
                                     </div>
                                 </div>
                             </div>
+
+                            @php
+                                $d = $product->id;
+                            @endphp
                             <div class="row">
                                 <div class="col-12">
                                     <div class="product-slider-wrap">
                                         <div class="swiper-container product-slider-col4-container">
                                             <div class="swiper-wrapper">
                                                 @foreach ($category->products as $product)
+                                                @if ($product->id != $d)
                                                 <div class="swiper-slide">
                                                     <!--== Start Product Item ==-->
                                                     <div class="product-item">
@@ -404,6 +409,7 @@
                                                     </div>
                                                     <!--== End prPduct Item ==-->
                                                 </div>
+                                                @endif
                                                 @endforeach
                                             </div>
                                         </div>

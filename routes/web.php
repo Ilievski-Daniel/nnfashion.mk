@@ -2,11 +2,14 @@
 
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\ColorController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SizeController;
+use App\Mail\CheckoutMail;
+use App\Models\OrderController;
 use App\Models\Product;
 use Illuminate\Support\Facades\Route;
 
@@ -39,9 +42,12 @@ Route::get('/cart', function () {
 Route::get('/checkout', function () {
     return view('checkout');
 });
+Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout');
+Route::post('/order', [CheckoutController::class, 'store'])->name('order');
 
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+Route::get('orders/view', [DashboardController::class, 'viewOrders'])->name('orders');
 
 Route::get('/shop', [ProductController::class, 'shop'])->name('shop');
 Route::get('/product/view/{id}', [ProductController::class, 'singleProduct'])->name('product.view');
@@ -64,7 +70,8 @@ Route::get('/sizes/create', [SizeController::class, 'create'])->name('sizes.crea
 Route::post('/sizes/create', [SizeController::class, 'store'])->name('sizes.create');
 Route::get('sizes/edit/{id}', [SizeController::class, 'edit'])->name('sizes.edit');
 Route::put('sizes/update/{id}', [SizeController::class, 'update'])->name('sizes.update');
-Route::delete('sizes/delete{id}', [SizeController::class, 'destroy'])->name('sizes.delete');
+Route::delete('sizes/delete/{id}', [SizeController::class, 'destroy'])->name('sizes.delete');
+Route::get('sizes/view/{id}', [SizeController::class, 'viewBySize'])->name('size.view');
 
 Route::get('/colors', [ColorController::class, 'index'])->name('colors');
 Route::get('/colors/create', [ColorController::class, 'create'])->name('colors.create');
@@ -77,3 +84,10 @@ Route::delete('colors/delete/{id}', [ColorController::class, 'destroy'])->name('
 
 Route::get('/cart', [CartController::class, 'index'])->name('cart');
 Route::post('/cart/add/{id}', [CartController::class, 'store'])->name('add.cart');
+Route::delete('/cart/{id}/delete', [CartController::class, 'destroy'])->name('cart.delete');
+Route::delete('/cart/clear', [CartController::class, 'destroyAll'])->name('cart.clear');
+
+
+Route::get('/email', function(){
+    return new CheckoutMail();
+});

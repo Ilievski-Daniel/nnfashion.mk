@@ -84,9 +84,10 @@
                         <li><a href="{{ route('products') }}">-Products</a></li>
                         <li><a href="{{ route('sizes') }}">-Sizes</a></li>
                         <li><a href="{{ route('colors') }}">-Colors</a></li>
+                        <li><a href="{{ route('orders') }}">-Orders</a></li>
                     </ul>
                 </div>
-                <div class="col-sm-9">
+                <div class="col-sm-5">
                     <button type="submit">
                         <a href="{{ route('product.add') }}">Create products</a>
                     </button>

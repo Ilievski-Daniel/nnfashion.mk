@@ -211,8 +211,14 @@
     <!--== End Page Header Area Wrapper ==-->
 
     <!--== Start Shopping Checkout Area Wrapper ==-->
+    </div>
     <section class="shopping-checkout-wrap">
+      @if (session('message'))
+          {{ session('message') . ', ' }} <a href="{{ route('shop') }}" >You can go back to shop</a>
+      @endif
       <div class="container">
+        <form action="{{ route('order') }}", method="post">
+          @csrf
         <div class="row">
           <div class="col-lg-6">
             <!--== Start Billing Accordion ==-->
@@ -224,50 +230,82 @@
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="f_name">Име <abbr class="required" title="required">*</abbr></label>
-                        <input id="f_name" type="text"  class="form-control">
+                        <input id="f_name" type="text" name="firstName"  class="form-control @error('firstName') border border-danger  @enderror ">
+                        <div class="error text-danger">
+                            @error('firstName')
+                              {{ $message }}
+                             @enderror
+                        </div>
                       </div>
                     </div>
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="l_name">Презиме <abbr class="required" title="required">*</abbr></label>
-                        <input id="l_name" type="text"  class="form-control">
+                        <input id="l_name" type="text" name="lastName"  class="form-control @error('lastName') border border-danger  @enderror ">
+                        <div class="error text-danger">
+                          @error('lastName')
+                            {{ $message }}
+                           @enderror
+                        </div>
                       </div>
                     </div>
                     <div class="col-md-12">
                       <div class="form-group">
                         <label for="country">Држава <abbr class="required" title="required">*</abbr></label>
-                        <select id="country" class="form-control">
-                          <option>Македонија</option>
+                        <select id="country" class="form-control @error('country') border border-danger  @enderror " name="country">
+                          @foreach ($countries as $country)
+                            <option>{{ $country->name . '(' . $country->code . ')' }}</option>
+                           @endforeach
                         </select>
+                        <div class="error text-danger">
+                          @error('country')
+                            {{ $message }}
+                           @enderror
+                        </div>
                       </div>
                     </div>
                     <div class="col-md-12">
                       <div class="form-group">
                         <label for="street-address">Адреса <abbr class="required" title="required">*</abbr></label>
-                        <input id="street-address" type="text"  class="form-control" placeholder="Број на улица и број на куќа/стан">
+                        <input id="street-address" type="text" name="adress"  class="form-control @error('adress') border border-danger  @enderror " placeholder="Број на улица и број на куќа/стан">
+                        <div class="error text-danger">
+                          @error('adress')
+                            {{ $message }}
+                           @enderror
+                        </div>
                       </div>
                     </div>
                     <div class="col-md-12">
                       <div class="form-group">
                         <label for="town">Град <abbr class="required" title="required">*</abbr></label>
-                        <input id="town" type="text"  class="form-control">
+                        <input id="town" type="text" name="city"  class="form-control @error('adress') border border-danger  @enderror ">
+                        <div class="error text-danger">
+                          @error('city')
+                            {{ $message }}
+                           @enderror
+                        </div>
                       </div>
                     </div>
                     <div class="col-md-12">
                       <div class="form-group">
                         <label for="pz-code">Поштенски број (опционално)</label>
-                        <input id="pz-code" type="text"  class="form-control">
+                        <input id="pz-code" type="text" name="postalNum"  class="form-control">
                       </div>
                     </div>
                     <div class="col-md-12">
                         <div class="form-group" data-margin-bottom="30">
                           <label for="email">Емаил адреса <abbr class="required" title="required">*</abbr></label>
-                          <input id="email" type="text"  class="form-control">
+                          <input id="email" type="text" name="email"  class="form-control @error('email') border border-danger  @enderror ">
+                          <div class="error text-danger">
+                            @error('email')
+                              {{ $message }}
+                             @enderror
+                          </div>
                         </div>
                     <div class="col-md-12">
                       <div class="form-group">
                         <label for="phone">Телефонски број <abbr class="required" title="required">*</abbr></label>
-                        <input id="phone" type="text"  class="form-control">
+                        <input id="phone" type="text" name="contact" class="form-control">
                       </div>
                     </div>
                     </div>
@@ -275,7 +313,7 @@
                     <div class="col-md-12">
                       <div class="form-group mb--0">
                         <label for="order-notes">Забелешка или порака (опционално)</label>
-                        <textarea id="order-notes" class="form-control">Порака..</textarea>
+                        <textarea id="order-notes" name="zabeleska" class="form-control"></textarea>
                       </div>
                     </div>
                   </div>
@@ -297,19 +335,23 @@
                     </tr>
                   </thead>
                   <tbody class="table-body">
+                    @php
+                        $subtotal = 0;
+                    @endphp
+                    @foreach ($cartproducts as $cartproduct)
                     <tr class="cart-item">
-                      <td class="product-name">Satin gown <span class="product-quantity">× 1</span></td>
-                      <td class="product-total">£69.99</td>
+                      <td class="product-name">{{ $cartproduct->productName }}<span class="product-quantity">× {{ $cartproduct->quantity }}</span></td>
+                      <td class="product-total">£{{ $cartproduct->productPrice * $cartproduct->quantity }}</td>
+                      @php
+                          $subtotal+= $cartproduct->productPrice * $cartproduct->quantity;
+                      @endphp
                     </tr>
-                    <tr class="cart-item">
-                      <td class="product-name">Printed cotton t-shirt <span class="product-quantity">× 1</span></td>
-                      <td class="product-total">£20.00</td>
-                    </tr>
+                    @endforeach
                   </tbody>
                   <tfoot class="table-foot">
                     <tr class="cart-subtotal">
                       <th>Subtotal</th>
-                      <td>£89.99</td>
+                      <td>£{{ $subtotal }}</td>
                     </tr>
                     <tr class="shipping">
                       <th>Shipping</th>
@@ -317,7 +359,7 @@
                     </tr>
                     <tr class="order-total">
                       <th>Total </th>
-                      <td>£91.99</td>
+                      <td>£{{ $subtotal + 2.00 }}</td>
                     </tr>
                   </tfoot>
                 </table>
@@ -330,13 +372,16 @@
                     </div>
                   </div>
                   <p class="p-text">Вашите лични податоци ќе се користат само за обработка на вашата нарачка и поддршка на вашето искуство низ нашата веб-страница.</a></p>
-                  <a href="account-login.html" class="btn-theme">Нарачај</a>
+                    <button type="submit" class="btn-theme">
+                      Нарачај
+                    </button>
                 </div>
               </div>
             </div>
             <!--== End Order Details Accordion ==-->
           </div>
         </div>
+      </form>
       </div>
     </section>
     <!--== End Shopping Checkout Area Wrapper ==-->
